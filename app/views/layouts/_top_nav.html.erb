@@ -9,6 +9,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-nav">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Jungle</a>
+
+    <% if current_user %>
+      Signed in as <%= current_user.name %><%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %><%= link_to 'Register', '/signup' %>
+    <% end %>
+
     <button
       class="navbar-toggler"
       type="button"
